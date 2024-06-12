@@ -1,0 +1,13 @@
+---
+- name: call all child playbooks
+  hosts: all
+  become: yes
+  tasks:
+    - name: call child playbook
+      include_tasks: "{{item}}"
+      with_items:
+        - nikki_install.yaml
+        - nikki_start.yaml
+        - nikki_copy.yaml
+        - nikki_restart.yaml
+~                            
